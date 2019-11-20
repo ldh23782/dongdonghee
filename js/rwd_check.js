@@ -10,14 +10,19 @@
 //-----------------------------------------------------------------------------------------
 const DeviceDate = function(wid){
 switch(wid){
-case device[0]:
-   conBox.load('./temp/main_mob.html');
-
-case device[1]:
-case device[2]:
-case device[3]:
-case device[4]:
- conBox.
+	case device[0]:
+		conBox.load('./temp/main_mob.html');
+		break;
+	case device[1]:
+			conBox.load('./temp/main_tab.html');
+		break;
+	case device[2]:
+	case device[3]:
+	case device[4]:
+		conBox.load('./temp/main_pc.html');
+	break;
+	}
+};
 
    //---------------------------------------------------------------------------------------
   //디바이스 크기 체크
@@ -37,6 +42,8 @@ case device[4]:
 };
 let beforeDevice = DeviceSet(beforeW);
 DeviceDate(beforeDevice);
+
+
   // console.log(nowSize)
   // 파이어폭스인가 아닌가 판단
   let browser = navigator.userAgent.toLowerCase();
@@ -45,14 +52,15 @@ DeviceDate(beforeDevice);
   }else{
     nowb = 'other';
   }
-  console.log(nowb);
+
+//   console.log(nowb);
 	// 사이즈 변경 체크
 	$(window).on('resize',function(){
 		let afterW = $(window).outerWidth(true);
 		let afterDevice = DeviceSet(afterW);
 		if( beforeDevice !== afterDevice){
-    // location.reload();
-    window.location = window.location;
+			// location.reload();
+			window.location = window.location;
 		}
   });
 })(jQuery);
